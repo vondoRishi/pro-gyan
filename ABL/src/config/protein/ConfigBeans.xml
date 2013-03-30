@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<!-- Bean id's should be equal to the bean ids of extractor -->
+	<bean id="AminoComposition" class="protein.confbean.AminoCompConfBean"
+		scope="prototype" />
+	<bean id="Dipeptide" class="protein.confbean.DiCompConfBean"
+		scope="prototype" />
+	<bean id="Autocorrelation" class="protein.confbean.AutoCorConfBean"
+		scope="prototype" />
+	<bean id="CompTransDist" class="protein.confbean.CTDConfBean"
+		scope="prototype" />
+	<bean id="PseAACType1" class="protein.confbean.PseAAC1ConfBean"
+		scope="prototype" />
+	<bean id="PseAACType2" class="protein.confbean.PseAAC2ConfBean"
+		scope="prototype" />
+	<bean id="SequenceOrder" class="protein.confbean.SeqOrdConfBean"
+		scope="prototype" />
+		<!-- using AminoCompConfBean as a dummy -->
+	<bean id="Global" class="protein.confbean.AminoCompConfBean"
+		scope="prototype" />
+	<bean id="ChargeDistribution" class="protein.confbean.AminoCompConfBean"
+		scope="prototype" />
+	<bean id="FoldIndex" class="protein.confbean.FoldIndexConfBean" scope="prototype"/>
+	<!-- <bean id="HydrophobicProfile" class="protein.confbean.HPConfigBean" scope="prototype"/> -->
+	<!-- < bean id="HydrophobicPattern" class="protein.confbean.AminoCompConfBean" scope="prototype"/>  -->
+	<!-- <bean id="AminoCount" class="protein.confbean.AminoCompConfBean" scope="prototype"/>  -->
+</beans>
