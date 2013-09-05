@@ -20,6 +20,8 @@ We used diverse set of proteins to build protein classifiers. We compared them w
  [<a href="http://pro-gyan.googlecode.com/files/PF_MITO_data.zip">data</a>]</br></td><td>56.67</td><td>93.04</td><td>77.07</td><td>0.54</td></tr>
 </table><br>
 
+ * SolubEcoli.pgc to classify chaperonin dependent proteins from soluble protein. The model was trained with E.coli proteins. Some of these chaperonin dependent proteins (Class III or C3) are obligatory GroEL substrates. To identify them another classifier GDP1.pgc is available.
+
  * We also compared Pro-Gyan's ability to build classifiers with different classifiers for different protein classification problems. Identical training and test data from the original classifiers were used and the test result is given below:
 <table border="1"  width=600>
 <tr><td></td><th>Classifier</th><th>ML Algorithm</th><th>Features</th><th>Accuracy</th><th>MCC</th></tr> 
