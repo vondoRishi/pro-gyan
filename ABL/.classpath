@@ -9,8 +9,6 @@
 	<classpathentry kind="lib" path="/AttributeExtractor/lib/spring-beans.jar"/>
 	<classpathentry kind="lib" path="/AttributeExtractor/lib/spring-context.jar"/>
 	<classpathentry kind="lib" path="/AttributeExtractor/lib/spring-core.jar"/>
-	<classpathentry kind="lib" path="/home/rishi.das/Software/weka-3-6-0/weka.jar" sourcepath="/home/rishi.das/Software/weka-3-6-0/weka-src.jar"/>
-	<classpathentry kind="lib" path="/home/rishi.das/Software/libsvm-3.11/java/libsvm.jar"/>
 	<classpathentry kind="lib" path="/AttributeExtractor/lib/xstream-1.4.2.jar"/>
 	<classpathentry kind="lib" path="lib/forms-1.3.0.jar"/>
 	<classpathentry kind="lib" path="lib/betterbeansbinding-core-1.3.0.jar"/>
