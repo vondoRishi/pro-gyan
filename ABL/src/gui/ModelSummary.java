@@ -108,7 +108,7 @@ public class ModelSummary extends JPanel implements ActionListener {
 		lblTpRate.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTpRate.setToolTipText("= TP / P = TP / (TP + FN)");
 		
-		JLabel labelTpRslt = new JLabel(Utils.doubleToString(mResult.truePositiveRate(0),7, 2));
+		JLabel labelTpRslt = new JLabel(Utils.doubleToString(mResult.truePositiveRate(0)*100,7, 2));
 		labelTpRslt.setHorizontalAlignment(SwingConstants.LEFT);
 		labelTpRslt.setBounds(104, 61, 50, 14);
 		panel.add(labelTpRslt);
@@ -120,7 +120,7 @@ public class ModelSummary extends JPanel implements ActionListener {
 		lblSpcRate.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSpcRate.setToolTipText("= TN / N = TN / (FP + TN)");
 		
-		JLabel labelSpcRslt = new JLabel(Utils.doubleToString(mResult.trueNegativeRate(0),7, 2));
+		JLabel labelSpcRslt = new JLabel(Utils.doubleToString(mResult.trueNegativeRate(0)*100,7, 2));
 		labelSpcRslt.setHorizontalAlignment(SwingConstants.LEFT);
 		labelSpcRslt.setBounds(104, 94, 50, 14);
 		panel.add(labelSpcRslt);
@@ -131,7 +131,7 @@ public class ModelSummary extends JPanel implements ActionListener {
 		lblPrecision.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrecision.setToolTipText("= TP / (TP + FP)");
 		
-		JLabel labelPrecsnResult = new JLabel(Utils.doubleToString(mResult.precision(0),7, 2));
+		JLabel labelPrecsnResult = new JLabel(Utils.doubleToString(mResult.precision(0)*100,7, 2));
 		labelPrecsnResult.setHorizontalAlignment(SwingConstants.LEFT);
 		labelPrecsnResult.setBounds(104, 124, 50, 14);
 		panel.add(labelPrecsnResult);
@@ -142,7 +142,7 @@ public class ModelSummary extends JPanel implements ActionListener {
 		panel.add(lblFmeasure);
 		lblFmeasure.setToolTipText("2 * Sensitivity * Precision / ( Sensitivity + Precision )");
 		
-		JLabel labelFmsrResult = new JLabel(Utils.doubleToString(mResult.fMeasure(0),7, 2));
+		JLabel labelFmsrResult = new JLabel(Utils.doubleToString(mResult.fMeasure(0)*100,7, 2));
 		labelFmsrResult.setHorizontalAlignment(SwingConstants.LEFT);
 		labelFmsrResult.setBounds(104, 150, 50, 14);
 		panel.add(labelFmsrResult);

@@ -46,12 +46,12 @@ public class BioUtil {
 		/*extractFeatures(new String[]{"Test"},"Name", 
 				new String []{"/home/rishi.das/Project/Aim/Models_data/RNApred/RNA-binding_train.fasta"}, 
 				"/home/rishi.das/multiSync.libsvm");*/
-		/*filterGoodBad("/home/rishi.das/Project/Aim/Models_data/DRM/final/rye_only_mem.fasta");
+		filterGoodBad("pathTo.fasta");
 		long end = System.currentTimeMillis();
 		long elapsedTime = end - start;
 		  System.out.println("The process took approximately: "
-		  + elapsedTime + " milli seconds");*/
-		  System.out.println(onlyBasicAminoAcids("XPPPSTLCSYWALEQGKLSQASGLLLVLFSPRVSGR	#$*@LGSVSV!AGVNVEALFPAWPMESKT"));
+		  + elapsedTime + " milli seconds");
+		  //System.out.println(onlyBasicAminoAcids("XPPPSTLCSYWALEQGKLSQASGLLLVLFSPRVSGR	#$*@LGSVSV!AGVNVEALFPAWPMESKT"));
 		  	
 	}
 	
@@ -272,7 +272,7 @@ public class BioUtil {
 					numOfFeature = lFV.size();
 				} else if (numOfFeature != lFV.size()) {
 					log.error(i + " " + lInstance.getInstanceId());
-					throw new Error();
+					throw new Error("Mismatch number of features");
 				}
 				pFP.printVector(lFV);
 

@@ -22,6 +22,7 @@ import util.SystemUtil;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JCheckBox;
 
 
 public class TestDialog extends JDialog implements ActionListener {
@@ -34,6 +35,7 @@ public class TestDialog extends JDialog implements ActionListener {
 	private JButton mPos_Browse;
 	private JButton mNeg_Browse;
 	private boolean isTest = false;
+	private JCheckBox mProbabilisticScore;
 
 	/**
 	 * Launch the application.
@@ -92,9 +94,14 @@ public class TestDialog extends JDialog implements ActionListener {
 		mNeg_Browse.addActionListener(this);
 		contentPanel.add(mNeg_Browse);
 		
-		JLabel lblNewLabel = new JLabel("Enter "+pEDB.getPos_label()+" or "+pEDB.getNeg_label()+" or both in fasta format");
+		JLabel lblNewLabel = new JLabel("Enter "+pEDB.getPos_label()+" and "+pEDB.getNeg_label());
 		lblNewLabel.setBounds(39, 12, 357, 14);
 		contentPanel.add(lblNewLabel);
+		
+		mProbabilisticScore = new JCheckBox("With probabilistic score");
+		mProbabilisticScore.setBounds(118, 132, 214, 23);
+		mProbabilisticScore.setSelected(true);
+		contentPanel.add(mProbabilisticScore);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
@@ -147,6 +154,11 @@ public class TestDialog extends JDialog implements ActionListener {
 			this.dispose();
 		}
 		
+	}
+
+	public boolean calculateScore() {
+		// TODO Auto-generated method stub
+		return mProbabilisticScore.isSelected();
 	}
 }
 

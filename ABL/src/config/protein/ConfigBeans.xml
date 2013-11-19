@@ -24,6 +24,7 @@ http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 	<bean id="ChargeDistribution" class="protein.confbean.AminoCompConfBean"
 		scope="prototype" />
 	<bean id="FoldIndex" class="protein.confbean.FoldIndexConfBean" scope="prototype"/>
+	<bean id="SplitAmino" class="protein.confbean.SplitAminoConfBean" scope="prototype"/>
 	<!-- <bean id="HydrophobicProfile" class="protein.confbean.HPConfigBean" scope="prototype"/> -->
 	<!-- < bean id="HydrophobicPattern" class="protein.confbean.AminoCompConfBean" scope="prototype"/>  -->
 	<!-- <bean id="AminoCount" class="protein.confbean.AminoCompConfBean" scope="prototype"/>  -->

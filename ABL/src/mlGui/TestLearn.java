@@ -70,9 +70,9 @@ public class TestLearn extends JPanel implements PropertyChangeListener {
 	}
 
 	public static void execute(String mPath, String[] mLabels,
-			String[] mFilePaths) {
+			String[] mFilePaths, boolean pCalculateScore) {
 		TestLearn l = new TestLearn();
-		TestLearnTask lTLT = new TestLearnTask(l,mPath,mLabels,mFilePaths);
+		TestLearnTask lTLT = new TestLearnTask(l,mPath,mLabels,mFilePaths,pCalculateScore);
 		l.start(lTLT);
 		
 	}

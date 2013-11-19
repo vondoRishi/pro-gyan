@@ -48,11 +48,15 @@ public class TestLearnTask extends SwingWorker<Void, Void> {
 
 	private TestLearn mTestLearn;
 
-	public TestLearnTask(TestLearn pTL, String pLearnPath, String[] pLabels, String[] pFilePaths) {
+	private boolean mCalculateScore;
+
+	public TestLearnTask(TestLearn pTL, String pLearnPath, String[] pLabels, String[] pFilePaths, boolean pCalculateScore) {
 		mTestLearn = pTL;
 		this.mLearnPath = pLearnPath;
 		mLabels=pLabels;
 		mFilePaths= pFilePaths;
+		mCalculateScore = pCalculateScore;
+		System.out.println(mCalculateScore);
 	}
 
 	/**
@@ -60,11 +64,10 @@ public class TestLearnTask extends SwingWorker<Void, Void> {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		String pLearnPath = "/home/rishi.das/AFP_19/Self";
+		String pLearnPath = "";
 		String[] pLabels ={"positive","negative"};
-		String[] pFilePaths= {"/home/rishi.das/Project/Aim/Models_data/AFP-Pred/Test_AFP.fasta",
-		"/home/rishi.das/Project/Aim/Models_data/AFP-Pred/Test_nonAFP.fasta"};
-		TestLearnTask l = new TestLearnTask(null, pLearnPath, pLabels, pFilePaths);
+		String[] pFilePaths= {"path.fasta","path.fasta"};
+		TestLearnTask l = new TestLearnTask(null, pLearnPath, pLabels, pFilePaths,false);
 		l.test();
 		/*ExecuteGridsearch lEV =   WekaUtil.getExecuteGridsearch("/home/rishi.das/AFP_19/Self");
 		Instances subTest = WekaUtil.getArff("/home/rishi.das/AFP_19/Self/test_0/test_scale.arff");
@@ -123,7 +126,7 @@ public class TestLearnTask extends SwingWorker<Void, Void> {
 		List<String> lPredicted = new ArrayList<String>();
 		 // label instances
 
-		boolean probOutPut=true;
+		boolean probOutPut=mCalculateScore;
 		List<String> lCsvTable;
 		if(!probOutPut){
 			 lCsvTable = classifyInstances(testDB, lEV, subTest,

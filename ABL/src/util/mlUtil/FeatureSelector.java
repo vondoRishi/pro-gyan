@@ -20,9 +20,13 @@ public class FeatureSelector {
 	
 	private List<AttributeScore> mRankedAttr;
 
-	public FeatureSelector(Instances pTrain, FeatureEvaluator lfe) {
+	public FeatureSelector(Instances pTrain, FeatureEvaluator lfe) throws Exception {
 		
 		mRankedAttr = lfe.evaluate(pTrain);
+	}
+
+	public List<AttributeScore> getRankedAttr() {
+		return mRankedAttr;
 	}
 
 	/**
@@ -30,12 +34,12 @@ public class FeatureSelector {
 	 * @throws Exception
 	 */
 	public static void main(String[] args) throws Exception {
-		DataSource source = new DataSource("/home/rishi.das/tmp/EColi_Features/OtherLearner/master.arff");
+		DataSource source = new DataSource("pathTo.arff");
 		Instances train = source.getDataSet();
 		train.setClassIndex(train.numAttributes()-1);
-		FeatureEvaluator lFE = new FeatureEvaluator(FeatureEvaluator.FSCORE);
+		FeatureEvaluator lFE = new FeatureEvaluator(FeatureEvaluator.FCBF);
 		FeatureSelector lFeatureSelector = new FeatureSelector(train,lFE);
-		lFeatureSelector.writeList("/home/rishi.das/tmp/EColi_Features/OtherLearner/fscore.txt");
+		lFeatureSelector.writeList("/pathTo/fscore.txt");
 		//lFeatureSelector.printScore();
 		int [] ftrs = {10,50,100,200,400};
 		for (int i : ftrs) {

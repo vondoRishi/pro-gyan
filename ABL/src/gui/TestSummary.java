@@ -129,7 +129,7 @@ public class TestSummary extends JPanel implements ActionListener{
 		lblTpRate.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblTpRate.setToolTipText("= TP / P = TP / (TP + FN)");
 		
-		JLabel labelTpRslt = new JLabel(Utils.doubleToString(mResult.truePositiveRate(0),7, 2));
+		JLabel labelTpRslt = new JLabel(Utils.doubleToString(mResult.truePositiveRate(0)*100,7, 2));
 		labelTpRslt.setHorizontalAlignment(SwingConstants.LEFT);
 		labelTpRslt.setBounds(101, 61, 56, 14);
 		panel.add(labelTpRslt);
@@ -141,7 +141,7 @@ public class TestSummary extends JPanel implements ActionListener{
 		lblSpcRate.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblSpcRate.setToolTipText("= TN / N = TN / (FP + TN)");
 		
-		JLabel labelSpcRslt = new JLabel(Utils.doubleToString(mResult.trueNegativeRate(0),7, 2));
+		JLabel labelSpcRslt = new JLabel(Utils.doubleToString(mResult.trueNegativeRate(0)*100,7, 2));
 		labelSpcRslt.setHorizontalAlignment(SwingConstants.LEFT);
 		labelSpcRslt.setBounds(101, 94, 56, 14);
 		panel.add(labelSpcRslt);
@@ -152,7 +152,7 @@ public class TestSummary extends JPanel implements ActionListener{
 		lblPrecision.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblPrecision.setToolTipText("= TP / (TP + FP)");
 		
-		JLabel labelPrecsnResult = new JLabel(Utils.doubleToString(mResult.precision(0),7, 2));
+		JLabel labelPrecsnResult = new JLabel(Utils.doubleToString(mResult.precision(0)*100,7, 2));
 		labelPrecsnResult.setHorizontalAlignment(SwingConstants.LEFT);
 		labelPrecsnResult.setBounds(101, 124, 56, 14);
 		panel.add(labelPrecsnResult);
@@ -163,7 +163,7 @@ public class TestSummary extends JPanel implements ActionListener{
 		panel.add(lblFmeasure);
 		lblFmeasure.setToolTipText(" = 2 * Sensitivity * Precision / ( Sensitivity + Precision )");
 		
-		JLabel labelFmsrResult = new JLabel(Utils.doubleToString(mResult.fMeasure(0),7, 2));
+		JLabel labelFmsrResult = new JLabel(Utils.doubleToString(mResult.fMeasure(0)*100,7, 2));
 		labelFmsrResult.setHorizontalAlignment(SwingConstants.LEFT);
 		labelFmsrResult.setBounds(101, 150, 56, 14);
 		panel.add(labelFmsrResult);
@@ -295,7 +295,7 @@ public class TestSummary extends JPanel implements ActionListener{
 				if(dialog.isTest()){
 					String[] mLabels = {"positive","negative"};
 					String [] mFilePaths = {dialog.getmPos_text(),dialog.getmNeg_text()};
-					TestLearn.execute(mPath,mLabels,mFilePaths);
+					TestLearn.execute(mPath,mLabels,mFilePaths,dialog.calculateScore());
 				}else{
 					System.out.println("close");
 				}

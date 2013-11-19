@@ -45,6 +45,7 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 	private String mRelationName;
 	private ExecuteGridsearch mExeGridSearch;
 	private String mSummaryPath;
+	private FeatureEvaluator mFE= new FeatureEvaluator(FeatureEvaluator.FCBF);
 
 	public static void main(String[] args) throws IOException {
 		try {
@@ -58,7 +59,16 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 					+ SystemUtil.getDateTime() + ".log");
 			ExperimentDataBean lEB = SystemUtil.getExperimentDataBean(SystemUtil.getWorkSpace()+ File.separator+args[0]);
 			
-			SelfLearnTask lSLT = new SelfLearnTask(null, lEB);
+			SelfLearnTask lSLT = null;
+			if(args.length==2){
+				 lSLT = new SelfLearnTask(null, lEB,Integer.parseInt(args[1]));
+				
+			}else{
+				lSLT = new SelfLearnTask(null, lEB);
+			}
+			
+//			lSLT.lFE = new FeatureEvaluator(FeatureEvaluator.FCBF);
+			
 			lSLT.execute();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -90,7 +100,7 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 	}
 
 	private ExecuteGridsearch learning(Instances train, FeatureSelector featureSelector) throws Exception {
-		List<Integer> toBeEvaluate = getFeatureList(train);
+		List<Integer> toBeEvaluate = getFeatureList(train,featureSelector);
 		List<ExecuteGridsearch> lAccuracyList = new ArrayList<ExecuteGridsearch>();
 
 		for (Integer integer : toBeEvaluate) {
@@ -244,63 +254,41 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 	}
 
 
-	private List<Integer> getFeatureList(Instances train) {
+	private List<Integer> getFeatureList(Instances train, FeatureSelector featureSelector) {
 		List<Integer> toBeEvaluate = new ArrayList<Integer>();
 //		int lNumInstance = (train.numInstances())<300 ? (train.numInstances()) : 300;
-		int lNumInstance = 400;
+		int lNumInstance = (featureSelector.getRankedAttr().size())<400 ? (featureSelector.getRankedAttr().size()-1) : 400;
 		System.out.println("Number of Features : "+lNumInstance);
 		System.out.print("Feature sets to be tried containing top ");
 
 		
 		toBeEvaluate.add(2);
 		
-		for (int i = 100;  i <= lNumInstance; i=i+100) {
+
+		
+		for (int i = 100;  i < lNumInstance; i=i+100) {
 			toBeEvaluate.add(i);
 		}
-		//toBeEvaluate.add(300);toBeEvaluate.add(350);toBeEvaluate.add(400);
+		toBeEvaluate.add(lNumInstance);
 		
-		
-		/*
-//		toBeEvaluate.add(4);toBeEvaluate.add(8);
-		toBeEvaluate.add(16);
-		toBeEvaluate.add(32);
-		toBeEvaluate.add(64);
-		toBeEvaluate.add(128);*/
-		
-		/*System.out.println("features\n To customize the list give ',' seperated value or enter -1");
-		boolean lIsCorrectInput = false;
-
-		do {
-			String userInput = CLutility.getUserInput();
-			if(userInput.equals("-1")){
-				lIsCorrectInput = true;
-			}else{
-
-				try {
-					List<Integer> userList = new ArrayList<Integer>();
-					for (String string : userInput.split(",")) {
-						userList.add(Integer.parseInt(string.trim()));
-					}
-					toBeEvaluate = userList;
-					lIsCorrectInput = true;
-				} catch (NumberFormatException e) {
-					System.err.println("Non integer value given in the list");
-				}
-			}
-		} while (!lIsCorrectInput);*/
 
 		return toBeEvaluate;
 	}
 
 	private FeatureSelector featureEvaluate(Instances train) throws Exception {
-		FeatureEvaluator lFE = new FeatureEvaluator(FeatureEvaluator.FSCORE);
-		FeatureSelector lFeatureSelector = new FeatureSelector(train,lFE);
+//		lFE = new FeatureEvaluator(FeatureEvaluator.FCBF);
+		FeatureSelector lFeatureSelector = new FeatureSelector(train,mFE);
 		lFeatureSelector.writeList(mWrkSpc.getAbsolutePath()+File.separator+FSCORE_TXT);
 		return lFeatureSelector;
 	}
 
 
 	public SelfLearnTask(SelfLearn pSelfLearn, ExperimentDataBean pExperimentDataBean) {
+		initializeSelfLearn(pSelfLearn, pExperimentDataBean);
+	}
+
+	private void initializeSelfLearn(SelfLearn pSelfLearn,
+			ExperimentDataBean pExperimentDataBean) {
 		mSelfLearn = pSelfLearn;
 		mExperimentDataBean = pExperimentDataBean;
 		mFilePaths[0] = SystemUtil.getWorkSpace()+File.separator+mExperimentDataBean.getName()+File.separator+mExperimentDataBean.getPos_label()+"_positive.fasta";
@@ -310,6 +298,11 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 		mSummaryPath = mWrkSpc.getAbsolutePath()+File.separator+SUMMARY_XML;
 		mRelationName = mExperimentDataBean.getName();
 		mLabels[0] = mExperimentDataBean.getPos_label();mLabels[1] = mExperimentDataBean.getNeg_label();
+	}
+
+	public SelfLearnTask(SelfLearn object, ExperimentDataBean lEB, int featureRanker) {
+		mFE = new FeatureEvaluator(featureRanker);
+		initializeSelfLearn(object,lEB);
 	}
 
 	public void addPropertyChangeListener(SelfLearn selfLearn) {

@@ -75,10 +75,10 @@ public class PredictionTask extends SwingWorker<Void, Void> {
 			System.err.println("ERROR");
 			System.exit(0);
 		}
-		if (!validateFastaFile(args[1])) {
+		/*if (!validateFastaFile(args[1])) {
 			System.out.println("error in file");
 			args[1] = args[1] + CURED_FAA;
-		}
+		}*/
 		System.out.println(args[0]);
 		SystemUtil.intialize();
 		Log4jUtil.reconfigure(SystemUtil.getWorkSpace() + File.separator+args[0]
