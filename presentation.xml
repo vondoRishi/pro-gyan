@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?> 
-<Module>
-  <ModulePrefs title="Pro-Gyan Presentation" />
-   <Content type="html"><![CDATA[
-    <iframe src="https://docs.google.com/presentation/d/1lr10c4OUoHbGHPJGjhitzV3sHJVccnwUS1z5iI8IguE/embed?start=true&loop=true&delayms=3000" frameborder="0" width="813" height="437" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
-  ]]></Content>
-</Module>
