@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="AminoComposition"
+		class="protein.proteinExtractor.AminoComposition" scope="prototype" />
+	<bean id="Dipeptide" class="protein.proteinExtractor.DipeptideComposition" scope="prototype" />
+	<bean id="Autocorrelation" class="protein.proteinExtractor.Autocorrelation" scope="prototype" />
+	<bean id="CompTransDist" class="protein.proteinExtractor.CompTransDist" scope="prototype" />
+	<bean id="PseAACType1" class="protein.proteinExtractor.PseAACType1" scope="prototype" />
+	<bean id="PseAACType2" class="protein.proteinExtractor.PseAACType2" scope="prototype" />
+	<bean id="SequenceOrder" class="protein.proteinExtractor.SequenceOrder" scope="prototype" />
+	<bean id="Global" class="protein.proteinExtractor.Global" scope="prototype"/>
+	<bean id="ChargeDistribution" class="protein.proteinExtractor.ChargeDistribution" scope="prototype"/>
+
+	<bean id="FoldIndex" class="protein.proteinExtractor.FoldIndex" scope="prototype"/>
+	<!-- <bean id="SplitAmino" class="protein.proteinExtractor.SplitAminoComposition" scope="prototype"/>  -->
+	<!-- <bean id="HydrophobicProfile" class="protein.proteinExtractor.HydrophobicProfile" scope="prototype"/>  -->
+	<!-- <bean id="HydrophobicPattern" class="protein.proteinExtractor.HydrophobicPattern" scope="prototype"/>  -->
+	<!-- <bean id="AminoCount" class="protein.proteinExtractor.AminoCount" scope="prototype"/> -->
+</beans>
