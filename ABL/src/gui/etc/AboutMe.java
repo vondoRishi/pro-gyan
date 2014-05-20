@@ -73,7 +73,7 @@ public class AboutMe extends JDialog implements ActionListener {
 		JLabel lblDevelopedBy = new JLabel("<html>"+
 				"<body >"+
 				"<h1 align=\"center\">"+
-				APPLICATION_NAME+" <font size=\"3\">1.0</font>"+
+				APPLICATION_NAME+" <font size=\"3\">1.1</font>"+
 				"</h1>"+
 				"<h3 align=\"center\">"+
 				  "Developed by :"+
@@ -98,7 +98,7 @@ public class AboutMe extends JDialog implements ActionListener {
 				"</body>"+
 				"</html>");
 		lblDevelopedBy.setHorizontalAlignment(SwingConstants.CENTER);
-		lblDevelopedBy.setBounds(12, 0, 424, 238);
+		lblDevelopedBy.setBounds(0, 0, 436, 238);
 		contentPanel.add(lblDevelopedBy);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
