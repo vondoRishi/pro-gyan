@@ -3,21 +3,25 @@ package gui;
 import gui.etc.DeleteExperiment;
 import gui.etc.SaveNewExperiment;
 
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
 
 import mlGui.SelfLearn;
 
 import org.apache.log4j.Logger;
 import org.jdesktop.beansbinding.AutoBinding;
+import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 import org.jdesktop.beansbinding.BeanProperty;
 import org.jdesktop.beansbinding.BindingGroup;
 import org.jdesktop.beansbinding.Bindings;
@@ -25,13 +29,12 @@ import org.jdesktop.beansbinding.Bindings;
 import util.JTextFieldLimit;
 import util.SystemUtil;
 import beans.ExperimentDataBean;
-import javax.swing.border.TitledBorder;
-import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
-import org.jdesktop.beansbinding.ObjectProperty;
-import java.awt.FlowLayout;
-import javax.swing.SwingConstants;
 
 
+/**
+ * @author rishi.dasroy at gmail.com
+ *
+ */
 public class ExperimentBasic extends JPanel implements ActionListener {
 	private static final String NEGATIVE = "Negative";
 	private static final String POSITIVE = "Positive";
@@ -81,7 +84,7 @@ public class ExperimentBasic extends JPanel implements ActionListener {
 		add(nameJTextField);
 
 		JLabel descriptionLabel = new JLabel("Description:");
-		descriptionLabel.setBounds(34, 126, 86, 14);
+		descriptionLabel.setBounds(23, 127, 89, 14);
 		add(descriptionLabel);
 		
 		JScrollPane scrollPane = new JScrollPane();
@@ -206,7 +209,20 @@ public class ExperimentBasic extends JPanel implements ActionListener {
 				if(mBtnSelfLearn.getText()==RESET){
 					reset();
 				}else {
-					SelfLearn.execute(getExperimentDataBean());
+					String s = (String)JOptionPane.showInputDialog(
+		                    TrainingDataWindow.getFrame(),
+		                    "Depending upon training data and number of processors \n"
+		                    + "the learning process could take several days to end.\n"
+		                    +"\n Following command can execute the job from a terminal.\n"
+		                    +" 	 Press 'OK' to continue",
+		                    "",
+		                    JOptionPane.PLAIN_MESSAGE,
+		                    null,
+		                    null,
+		                    "java -Xmx4048m -cp Pro-Gyan_<version>.jar mlGui.task.SelfLearnTask "+getExperimentDataBean().getName());
+					
+					if(s!=null)
+						SelfLearn.execute(getExperimentDataBean());
 				}
 			}
 			
