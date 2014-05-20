@@ -62,7 +62,7 @@ public class TrainingDataWindow {
 		frmKnowledgeBuilder = new JFrame();
 		frmKnowledgeBuilder.setTitle(TRAINING_WIN_TITLE);
 		frmKnowledgeBuilder.setLocationRelativeTo(MainWindow.getFrame());
-		frmKnowledgeBuilder.setSize( 600, 400);
+		frmKnowledgeBuilder.setSize( 607, 400);
 		frmKnowledgeBuilder.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frmKnowledgeBuilder.getContentPane().setLayout(null);
 		
@@ -76,7 +76,7 @@ public class TrainingDataWindow {
 		
 		mPanel_1 = new JPanel();
 		mPanel_1.setBorder(new TitledBorder(null, "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		mPanel_1.setBounds(123, 12, 470, 350);
+		mPanel_1.setBounds(120, 12, 470, 350);
 		frmKnowledgeBuilder.getContentPane().add(mPanel_1);
 		mPanel_1.setLayout(null);
 		

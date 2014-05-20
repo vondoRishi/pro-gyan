@@ -23,6 +23,7 @@ import util.mlUtil.FeatureEvaluator;
 import util.mlUtil.FeatureSelector;
 import util.mlUtil.WekaUtil;
 import weka.core.Instances;
+import weka.core.Utils;
 import beans.ExperimentDataBean;
 import feature.util.FileUtil;
 import gui.Summary;
@@ -33,7 +34,7 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 	
 	
 	private static Logger log = Logger.getLogger(SelfLearnTask.class);
-	private SelfLearn mSelfLearn;
+	private static SelfLearn mSelfLearn;
 	private ExperimentDataBean mExperimentDataBean;
 
 	private String [] mFilePaths = new String[2];
@@ -69,7 +70,7 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 			
 //			lSLT.lFE = new FeatureEvaluator(FeatureEvaluator.FCBF);
 			
-			lSLT.execute();
+			lSLT.doInBackground();
 		} catch (Exception e) {
 			e.printStackTrace();
 			log.error("Fatal error ",e);
@@ -109,6 +110,7 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 			ExecuteGridsearch lEGS = new ExecuteGridsearch(subTrain);
 			lEGS.executeThread();
 			lAccuracyList.add(lEGS);
+			flashMessage("MCC "+Utils.doubleToString(lEGS.getBestResult(),7,2)+" with "+integer+" features ");
 		}
 
 		ExecuteGridsearch lBestResult = null;
@@ -339,7 +341,7 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 			  FileUtil.writeToXML(mWrkSpc.getAbsolutePath()+File.separator+FEATURE_XML, lFeatureSelector);
 			  lFeatureSelector.reportTopScore();
 			  
-			  flashMessage("Building Models");
+			  flashMessage("Building classifiers ");
 			  mExeGridSearch = learning(train,lFeatureSelector);
 //			  save the best result producing arff file 
 			  saveResultToXml();
@@ -363,7 +365,7 @@ public class SelfLearnTask extends SwingWorker<Void, Void> {
 		return null;
 	}
 	
-	private void flashMessage(String pMsg) {
+	public static void flashMessage(String pMsg) {
 		if(mSelfLearn!=null){
 			mSelfLearn.setMessage(pMsg);
 		} else {

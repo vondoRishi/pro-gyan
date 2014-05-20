@@ -310,7 +310,7 @@ public class Summary extends JPanel implements ActionListener {
 					String [] mFilePaths = {dialog.getmPos_text(),dialog.getmNeg_text()};
 					TestLearn.execute(mPath,mLabels,mFilePaths,dialog.calculateScore());
 				}else{
-					System.out.println("close");
+					log.info("Cancelled Test");
 				}
 			}else if(e.getSource()==mBtnExportKnowledge){
 				ExperimentDataBean lEDB = SystemUtil.getExperimentDataBean(mPath.substring(0,mPath.lastIndexOf(File.separator)));

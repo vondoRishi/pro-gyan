@@ -10,6 +10,8 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,7 +32,6 @@ public class SelfLearn extends JPanel implements ActionListener,
 		PropertyChangeListener {
 	
 	private static Logger log = Logger.getLogger(SelfLearn.class);
-	private static XStream xstream = new XStream(new StaxDriver());
 	private static JFrame frame = TrainingDataWindow.getFrame();
 	private JDialog dlg;
 	private SelfLearnTask task;
@@ -43,33 +44,35 @@ public class SelfLearn extends JPanel implements ActionListener,
 		mExperimentDataBean = pExperimentDataBean;
 		task = new SelfLearnTask(this,pExperimentDataBean);
 		mProgressBar = new JProgressBar(0, 100);
-		mProgressBar.setValue(0);
-		mProgressBar.setStringPainted(true);
 		mProgressBar.setIndeterminate(true);
+		mProgressBar.setLocation(79, 5);
+		mProgressBar.setValue(0);
 
 		mTaskOutput = new JLabel("    ");
 		//mTaskOutput.setMargin(new Insets(5, 5, 5, 5));
 		//mTaskOutput.setEditable(false);
 
-		/*java.net.URL imgURL = getClass().getResource(
-				"/Application/barcircle.gif");
-
-		Icon icon = new ImageIcon(imgURL);
-		iconlabel = new JLabel(icon);*/
-
+		
 		JPanel panel = new JPanel();
 		// panel.add(startButton);
 		panel.add(mProgressBar);
-//		panel.add(iconlabel);
 
 		/*add(panel, BorderLayout.NORTH);
 		add(mTaskOutput, BorderLayout.SOUTH);
 		setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));*/
 		
-		panel.setBounds(49, 12, 148, 25);
-		mTaskOutput.setBounds(49, 45, 148, 21);
+		panel.setBounds(76, 12, 148, 25);
+		mTaskOutput.setBounds(12, 49, 282, 21);
 		add(panel);
 		add(mTaskOutput);
+		
+		/*java.net.URL imgURL = getClass().getResource(
+				"/data/barcircle.gif");
+		Icon icon = new ImageIcon(imgURL);
+
+		JLabel iconlabel = new JLabel(icon);
+		iconlabel.setBounds(242, 12, 48, 48);
+		add(iconlabel);*/
 	}
 	
 

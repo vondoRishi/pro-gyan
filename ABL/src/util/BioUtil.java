@@ -17,6 +17,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 import mlGui.GuiFeatureConfig;
+import mlGui.task.SelfLearnTask;
 
 import org.apache.log4j.Logger;
 
@@ -46,7 +47,7 @@ public class BioUtil {
 		/*extractFeatures(new String[]{"Test"},"Name", 
 				new String []{"/home/rishi.das/Project/Aim/Models_data/RNApred/RNA-binding_train.fasta"}, 
 				"/home/rishi.das/multiSync.libsvm");*/
-		filterGoodBad("pathTo.fasta");
+		filterGoodBad("/home/rishi/Project/Aim/cleverSuite/Structural Disorder/disprot_fasta_v6.02.txt");
 		long end = System.currentTimeMillis();
 		long elapsedTime = end - start;
 		  System.out.println("The process took approximately: "
@@ -258,6 +259,7 @@ public class BioUtil {
 		String i = "";
 		int numOfFeature = 0;
 		List<String> l = new ArrayList<String>();
+		int sequenceCounter=0;
 		try {
 			while ((lInstance = pInstanceReader.nextInstance()) != null) {
 				i=lInstance.getInstanceId();
@@ -275,7 +277,9 @@ public class BioUtil {
 					throw new Error("Mismatch number of features");
 				}
 				pFP.printVector(lFV);
-
+				if((++sequenceCounter)%5==0){
+					SelfLearnTask.flashMessage((sequenceCounter)+" "+pClassLabel+" proteins processed");
+				}
 			}
 			if (pFP.isHasError()) {
 				log.error("Error found in generated attributes for Instances of"

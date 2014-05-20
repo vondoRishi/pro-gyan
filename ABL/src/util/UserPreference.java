@@ -130,8 +130,8 @@ public class UserPreference extends JDialog implements ActionListener {
 		lblNewLabel.setBounds(12, 12, 162, 15);
 		contentPanel.add(lblNewLabel);
 		
-		lblthePreferencesCan = new JLabel("<html>The preferences can always be reset from <i>\"About Me\"</i></html>");
-		lblthePreferencesCan.setBounds(24, 281, 389, 15);
+		lblthePreferencesCan = new JLabel("<html>The preferences can be always reset from <i>\"About Me\"</i></html>");
+		lblthePreferencesCan.setBounds(24, 265, 402, 31);
 		contentPanel.add(lblthePreferencesCan);
 		
 		{
