@@ -16,8 +16,8 @@ We used diverse set of proteins to build protein classifiers. We compared them w
  <tr><td>MitPred(Pfam+SVM)</td><td>27.78</td><td>100</td><td>68.29</td><td>0.42</td></tr>
  <tr><td><a href="http://gecco.org.chemie.uni-frankfurt.de/plasmit/">PlasMit </a></td><td>58.89</td><td>87.83</td><td>75.12</td><td>0.49</td></tr>
  <tr><td><a href="http://www.imtech.res.in/raghava/pfmpred/">PFMpred </a>*</td><td>50</td><td>80</td><td>66.83</td><td>0.32</td></tr>
- <tr><td><a href="http://pro-gyan.googlecode.com/files/PF_MITO.pgc">PF_Mito.pgc* </a><br> 
- [<a href="http://pro-gyan.googlecode.com/files/PF_MITO_data.zip">data</a>]</br></td><td>56.67</td><td>93.04</td><td>77.07</td><td>0.54</td></tr>
+ <tr><td><a href="http://sourceforge.net/projects/progyan/files/Classifiers/PF_MITO.pgc/download">PF_Mito.pgc</a>`*`<br> 
+ [<a href="http://sourceforge.net/projects/progyan/files/Classifiers/Training_Test_sequences/PF_MITO_data.zip/download">data</a>]</br></td><td>56.67</td><td>93.04</td><td>77.07</td><td>0.54</td></tr>
 </table>
 <br>
 
@@ -27,8 +27,8 @@ We used diverse set of proteins to build protein classifiers. We compared them w
 <table border="1"  width=600>
 <tr><td></td><th>Classifier</th><th>ML Algorithm</th><th>Features</th><th>Accuracy</th><th>MCC</th></tr> 
 <tr><td rowspan=2 >Adhesion</td><td><a href="http://bioinfo.icgeb.res.in/faap/">FaaPred</a></td><td>SVM</td><td>400</td><td>91.22</td><td>0.68</td></tr>
-<tr><td><a href="http://pro-gyan.googlecode.com/files/FAAP.pgc">FAAP.pgc* </a><br>  [<a href="http://pro-gyan.googlecode.com/files/FAAP_data.zip">data</a>]</br></td>
+<tr><td><a href="http://sourceforge.net/projects/progyan/files/Classifiers/FAAP.pgc/download">FAAP.pgc</a>`*`<br>  [<a href="http://sourceforge.net/projects/progyan/files/Classifiers/Training_Test_sequences/FAAP_data.zip/download">data</a>]</br></td>
  <td>SVM</td><td>90</td><td>96.78</td><td>0.81</td></tr>
 <tr><td rowspan=2 >Nuclear Receptor</td><td><a href="http://www.plosone.org/article/info%3Adoi%2F10.1371%2Fjournal.pone.0023505">NR-2L</a></td><td>FK-NN</td><td>881</td><td>98.03</td><td>0.96</td></tr>
-<tr><td><a href="http://pro-gyan.googlecode.com/files/NRP.pgc">NRP.pgc* </a><br>  [<a href="http://pro-gyan.googlecode.com/files/NR_data.zip">data</a>]</br></td><td>SVM</td><td>400</td><td>99.53</td><td>0.99</td></tr>
+<tr><td><a href="http://sourceforge.net/projects/progyan/files/Classifiers/NRP.pgc/download">NRP.pgc</a>`*`<br>  [<a href="http://sourceforge.net/projects/progyan/files/Classifiers/Training_Test_sequences/NR_data.zip/download">data</a>]</br></td><td>SVM</td><td>400</td><td>99.53</td><td>0.99</td></tr>
 </table>
