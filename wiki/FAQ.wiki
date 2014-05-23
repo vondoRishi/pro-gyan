@@ -1,3 +1,18 @@
 #Frequently Asked Question
 
-= Coming Soon =
+<wiki:toc max_depth="2" />
+
+== System Requirement ==
+----
+  # Operating System : Linux, Window and Macintosh (visualization optimized for Linux)
+  # Java runtime environment (JRE) 6 or above.
+
+== Installation ==
+----
+  # Unzip the Pro-Gyan-`<`version>.zip by a standard application to a directory Pro-Gyan {installation_directory}. Start the application by double clicking Pro-Gyan.jar which is inside the installation_directory. The software can also be launched by executing command “java -jar Pro-Gyan.jar” from the location of Pro-Gyan.jar. If Pro-Gyan is to be used for big training set please use Pro-Gyan_memory_linux.sh or Pro-Gyan_memory_windows.bat by assigning as much possible memory (default 512mb) using -Xmx<ammount of memory> argument.
+
+== How Toes ==
+  # To build classifiers and classify proteins read the *ReadMe.pdf* given inside the Pro-Gyan-`<`version>.zip .
+
+== Report bug ==
+  # Report to rishi.dasroy at gmail.com
