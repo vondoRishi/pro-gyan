@@ -1,19 +1,25 @@
 #labels Featured
 #Frequently Asked Question
 
-<wiki:toc max_depth="2" />
-
-== System Requirement ==
+<wiki:toc max_depth="3" />
 ----
+== System Requirement ==
   # Operating System : Linux, Window and Macintosh (visualization optimized for Linux)
   # Java runtime environment (JRE) 6 or above.
 
 == Installation ==
-----
   # Unzip the Pro-Gyan-`<`version>.zip by a standard application to a directory Pro-Gyan {installation_directory}. Start the application by double clicking Pro-Gyan.jar which is inside the installation_directory. The software can also be launched by executing command “java -jar Pro-Gyan.jar” from the location of Pro-Gyan.jar. If Pro-Gyan is to be used for big training set please use Pro-Gyan_memory_linux.sh or Pro-Gyan_memory_windows.bat by assigning as much possible memory (default 512mb) using -Xmx<ammount of memory> argument.
 
-== How Toes ==
-  # To build classifiers and classify proteins read the *ReadMe.pdf* given inside the Pro-Gyan-`<`version>.zip .
+== How To ==
+=== Cite Pro-Gyan ===
+  * Please site *<a href="http://link.springer.com/article/10.1007/s00726-014-1697-z">Roy, Rishi Das, and Debasis Dash. "Selection of relevant features from amino acids enables development of robust classifiers." Amino acids 46.5 (2014): 1343-1351.</a>*
+=== Build classifiers and classify proteins ===
+  # Read the *ReadMe.pdf* given inside the Pro-Gyan-`<`version>.zip.
+=== Contribute your classifier and data ===
+  * If you have used Pro-Gyan to build a new classifier, we will happy to host it and its training data here.
+=== Customize Pro-Gyan ===
+  * 
+
 
 == Report bug ==
-  # Report to rishi.dasroy at gmail.com
+  # Report to rishi.dasroy at gmail.com or 
