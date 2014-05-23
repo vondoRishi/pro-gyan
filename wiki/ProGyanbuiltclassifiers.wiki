@@ -1,3 +1,4 @@
+#labels Featured
 #Pro-Gyan built classifiers.
 
 = Introduction =
