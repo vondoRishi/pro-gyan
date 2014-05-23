@@ -18,7 +18,7 @@
 === Contribute your classifier and data ===
   * If you have used Pro-Gyan to build a new classifier, we will happy to host it and its training data here.
 === Customize Pro-Gyan ===
-  * 
+  * Pro-Gyan is an open source application. Hence if you a java programmer you can update/customize it with new feature calculation , feature selection and weka machine learning algorithms. <a href="http://sourceforge.net/projects/progyan/files/Eclipse_Setup/Pro-Gyan%20development%20environment.docx/download">Here</a> is a document which is helpful to set up the development environment using Eclipse. Pro-Gyan depends on two external (eclipse) <a href="http://sourceforge.net/projects/progyan/files/Eclipse_Setup/AdditionalProjects.zip/download">projects</a>. 
 
 
 == Report bug ==
